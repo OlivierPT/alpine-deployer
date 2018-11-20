@@ -38,6 +38,11 @@ RUN pip install awscli --upgrade
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod 777 /usr/local/bin/entrypoint.sh
 
+COPY bin $DEPLOYER_HOME/bin
+
+RUN echo "export PATH=$PATH:$DEPLOYER_HOME/bin" >> $DEPLOYER_HOME/.profile
+RUN chown -R ${uid}:${gid} $DEPLOYER_HOME
+
 USER ${user}
 
 RUN python --version
