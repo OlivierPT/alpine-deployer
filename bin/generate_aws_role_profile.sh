@@ -19,5 +19,5 @@ fi
 echo "[$1]" >> ~/.aws/credentials
 echo "role_arn = $2" >> ~/.aws/credentials
 echo 'source_profile = default' >> ~/.aws/credentials
-echo "region = $AWS_REGION" >> ~/.aws/credentials
+echo "region = $AWS_DEFAULT_REGION" >> ~/.aws/credentials
 echo '' >> ~/.aws/credentials
