@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Configure aws credentials from CodeBuild environment and provided role to assume as argument of the script
 # References :
