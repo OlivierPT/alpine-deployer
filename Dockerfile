@@ -43,7 +43,7 @@ COPY bin $DEPLOYER_HOME/bin
 
 # INSTALL AWS-SSM-ENV
 RUN wget -O $DEPLOYER_HOME/bin/aws-ssm-env.zip \
-    https://github.com/jamietsao/aws-ssm-env/releases/download/v1.0.0/aws-ssm-env-v1.0.0-linux-amd64.zip && \
+    https://github.com/piotrb/aws-ssm-env/releases/download/v1.2.0/aws-ssm-env-v1.2.0-linux-amd64.zip && \
     unzip -d $DEPLOYER_HOME/bin $DEPLOYER_HOME/bin/aws-ssm-env.zip && \
     chmod 755 $DEPLOYER_HOME/bin/aws-ssm-env && \
     rm $DEPLOYER_HOME/bin/aws-ssm-env.zip
