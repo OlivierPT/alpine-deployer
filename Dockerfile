@@ -19,6 +19,7 @@ RUN apk add --no-cache nodejs npm terraform
 RUN apk add --update \
     curl \
     python \
+    python3 \
     python-dev \
     py-pip \
     build-base \
