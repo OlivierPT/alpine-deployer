@@ -6,13 +6,7 @@ ARG uid=1000
 ARG gid=1000
 ARG DEPLOYER_HOME=/home/deployer
 
-ENV OPENSSH_VERSION="7.7_p1-r3"\
-    GIT_VERSION="2.18.1-r0" \
-    NODE_VERSION="8.11.4-r0" \
-    NPM_VERSION="6.1.0" \
-    SERVERLESS_VERSION="1.38.0" \
-    PYTHON3_VERSION="3.6.6-r0" \
-    PYTHON2_VERSION="2.7.15-r1"
+ENV SERVERLESS_VERSION="1.48.2"
 
 RUN apk add --no-cache nodejs npm terraform
 
