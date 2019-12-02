@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:edge
 
 ARG user=deployer
 ARG group=deployer
@@ -6,9 +6,7 @@ ARG uid=1000
 ARG gid=1000
 ARG DEPLOYER_HOME=/home/deployer
 
-ENV SERVERLESS_VERSION="1.48.2"
-
-RUN apk add --no-cache nodejs npm terraform
+ENV SERVERLESS_VERSION="1.58.0"
 
 RUN apk add --update \
     curl \
@@ -18,6 +16,9 @@ RUN apk add --update \
     py-pip \
     build-base \
     jq \
+    nodejs \
+    npm \
+    terraform \
   && pip install virtualenv \
   && rm -rf /var/cache/apk/*
 
@@ -55,6 +56,7 @@ USER ${user}
 
 RUN python --version
 RUN pip --version
+RUN node --version
 RUN npm --version
 RUN terraform --version
 RUN aws --version
