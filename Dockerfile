@@ -6,7 +6,7 @@ ARG uid=1000
 ARG gid=1000
 ARG DEPLOYER_HOME=/home/deployer
 
-ENV SERVERLESS_VERSION="1.58.0"
+ENV SERVERLESS_VERSION="1.73.1"
 
 RUN apk add --update \
     curl \
@@ -18,7 +18,6 @@ RUN apk add --update \
     jq \
     nodejs \
     npm \
-    terraform \
   && pip install virtualenv \
   && rm -rf /var/cache/apk/*
 
@@ -37,6 +36,8 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod 777 /usr/local/bin/entrypoint.sh
 
 COPY bin $DEPLOYER_HOME/bin
+
+COPY npm/.npmrc $DEPLOYER_HOME/
 
 # INSTALL AWS-SSM-ENV
 RUN wget -O $DEPLOYER_HOME/bin/aws-ssm-env.zip \
@@ -58,7 +59,6 @@ RUN python --version
 RUN pip --version
 RUN node --version
 RUN npm --version
-RUN terraform --version
 RUN aws --version
 RUN sls --version
 
