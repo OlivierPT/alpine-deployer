@@ -42,7 +42,6 @@ RUN groupadd --gid ${gid} ${group}  \
 
 COPY bin $DEPLOYER_HOME/bin
 
-RUN echo "export PATH=$PATH:$DEPLOYER_HOME/bin:$DEPLOYER_HOME/.local/bin" >> $DEPLOYER_HOME/.bashrc
 RUN chown -R ${uid}:${gid} $DEPLOYER_HOME
 
 USER ${user}
@@ -65,8 +64,6 @@ RUN npm --version
 RUN aws --version
 RUN sls --version
 
-USER root
-RUN chown -R ${user}:${group} $DEPLOYER_HOME
 USER ${user}
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]

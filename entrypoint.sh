@@ -1,6 +1,6 @@
-#! /bin/sh -eu
+#! /bin/bash -e
 
 cd $HOME
-# source ~/.bashrc
+. ~/.bash_profile
 
 exec "$@"
