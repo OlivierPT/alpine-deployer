@@ -41,6 +41,7 @@ RUN groupadd --gid ${gid} ${group}  \
     && adduser --home "$DEPLOYER_HOME" --uid ${uid} --gid ${group} --shell /bin/bash ${user}
 
 COPY bin $DEPLOYER_HOME/bin
+COPY npm/.npmrc $DEPLOYER_HOME/.npmrc
 
 RUN chown -R ${uid}:${gid} $DEPLOYER_HOME
 
